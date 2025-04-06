@@ -34,6 +34,7 @@ try:
         user=os.getenv("MY_SQL_USER"),
         password=os.getenv("MY_SQL_PASSWORD"),
         database=os.getenv("MY_SQL_DATABASE")
+
     )
     logger.info("Pool de conexiones configurador correctamente.")
 except Error as err:

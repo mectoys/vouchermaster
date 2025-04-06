@@ -1,0 +1,76 @@
+{% extends './base.html'  %}
+{% block title  %}Listado Voucher {% endblock %}
+
+{% block body  %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h2>
+            <button id="editar" class="btn btn-primary shadow">Editar Voucher </button>
+            <button  id="imagen" class="btn btn-primary shadow">Cargar Imagen </button>
+        </h2>
+
+        <table id="table_id" class="display hover" style="width:100%">
+            <thead>
+                <tr class="thread-dark">
+                    <th >Código</th>
+                    <th> Fecha</th>
+                    <th> beneficiario</th>
+                    <th> Banco</th>
+                    <th> FormaPago</th>
+                    <th> Nota</th>
+                    <th> Total</th>
+                    <th> Imagen</th>
+                    <th> Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in vouchers  %}
+                <tr>
+                    <td >{{row.idVoucher}}</td>
+                    <td >{{row.fecha}}</td>
+                    <td >{{row.Nombres}}</td>
+                    <td >{{row.Banco}}</td>
+                    <td >{{row.FormaPago}}</td>
+                    <td >{{row.nota}}</td>
+                    <td >{{row.Total}}</td>
+                    <td >{{row.hasfilename}}</td>
+                    <td> </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+         $(document).ready(function(){
+            var table =$('#table_id')
+            .DataTable(
+                {
+                    columns :[
+                        { data: 'idVoucher' },
+                        { data: 'fecha' },
+                        { data: 'Nombres' },
+                        { data: 'Banco' },
+                        { data: 'FormaPago' },
+                        { data: 'nota' },
+                        { data: 'Total' },
+                        { data: 'hasfilename' },
+                        { data: null }
+                    ]
+                });
+         });
+    });
+
+</script>
+
+
+
+{% endblock %}
+
+{% block extra_js  %}
+{% include './datatable_includes.html' %}
+{% endblock %}
