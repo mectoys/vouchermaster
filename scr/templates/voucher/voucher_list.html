@@ -9,6 +9,10 @@
             <button id="editar" class="btn btn-primary shadow">Editar Voucher </button>
             <button  id="imagen" class="btn btn-primary shadow">Cargar Imagen </button>
         </h2>
+        <!-- Boton Flotante -->
+        <button id="agregar" class="floating-btn" >
+            <i class="fa fa-plus" ></i>
+        </button>
 
         <table id="table_id" class="display hover" style="width:100%">
             <thead>
@@ -43,26 +47,12 @@
     </div>
 
 </div>
-
+<script  src="{{url_for('static', filename='js/voucherlist.js') }}"></script>
 <script>
+
+    // Llama a la función una vez que los script estén cargados.
     document.addEventListener('DOMContentLoaded', function(){
-         $(document).ready(function(){
-            var table =$('#table_id')
-            .DataTable(
-                {
-                    columns :[
-                        { data: 'idVoucher' },
-                        { data: 'fecha' },
-                        { data: 'Nombres' },
-                        { data: 'Banco' },
-                        { data: 'FormaPago' },
-                        { data: 'nota' },
-                        { data: 'Total' },
-                        { data: 'hasfilename' },
-                        { data: null }
-                    ]
-                });
-         });
+        vo_loadSettingDataTable();
     });
 
 </script>
