@@ -1,0 +1,23 @@
+<!-- Permite agregar una barra de titulo --->
+{%  macro title_bar(title_name)  %}
+<div  style="background-color:#3498db; padding: 10px;">
+    <button id="close" type="button" class="close" aria-label="Close" style="position: absolute; top: 10px; right: 10px;">
+        <span  aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="text-white">{{ title_name  }}</h4>
+</div>
+{% endmacro %}
+
+
+<!--- Permite Input-Select-Label --->
+
+{% macro  form_controls(type, id, label, classes , col='col-md-3')   %}
+    <div class="{{ col }} mb-3">
+        <label for="{{ id }}" class="form-label" >{{ label }}</label>
+        <input type="{{ type }}" class="{{ classes }}" id="{{ id }}" name="{{ id }}">
+
+    </div>
+
+{% endmacro %}
+
+

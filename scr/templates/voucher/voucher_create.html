@@ -1,10 +1,78 @@
 {% extends './base.html' %}
-
+{% import './macros.html' as macros  %}
 {% block title %} Agregar Voucher{% endblock %}
 
 
 {% block body %}
 
+    <div class="container mt-5 border border-1" style="border-radius: 5px; border-color: red; box-shadow: 0 5px 5px #f6e1aa; position: relative;">
+    {{ macros.title_bar("Agregar Voucher")  }}
+    <div class="row mt-3">
+        {{ macros.form_controls('date','fecha','Fecha:' ,'form-control')  }}
 
+          <div class="col-md-3 mb-3">
+            <label for="beneficiario" class="form-label">Tipo Beneficiario:</label>
+                <select id="beneficiario" name="beneficiario" class="form-select">
+                    <option value="1">Cliente</option>
+                    <option value="2">Proveedor</option>
+                </select>
+          </div>
+        {{ macros.form_controls('idbeneficiario','idbeneficiario','Beneficiario:' ,'form-select')  }}
+        {{ macros.form_controls('idbanco','idbanco','Banco:' ,'form-select')  }}
+        {{ macros.form_controls('idFormaPago','idFormaPago','Forma de Pago:' ,'form-select')  }}
 
+        <div class="col-md-3 mb-3">
+            <label for="cuenta" class="form-label">N° Transacción:</label>
+            <input type="text" class="form-control" id="cuenta" name="cuenta">
+            <small id="emptyError" class="text-danger" style="display: none;">Por favor, ingresa un N° Cuenta.</small>
+        </div>
+
+         <div class="col-md-3 mb-3">
+            <label for="moneda" class="form-label">Moneda:</label>
+            <select id="moneda" name="moneda" class="form-select">
+                 <option value="$">Dólares</option>
+                 <option value="S/">Soles</option>
+            </select>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <label for="importePago" class="form-label">Importe Pago:</label>
+            <div class="input-group">
+                <span class="input-group-text" id="inputGroupimportePago">$</span>
+          <!-- Agrega el atributo inputmode="numeric" para sugerir al navegador que muestre un teclado numérico -->
+                <input type="text" class="form-control" id="importePago" name="importePago" inputmode="numeric">
+            </div>
+            <small id="emptyErrorimporte" class="text-danger" style="display: none;">Por favor, ingresa un Importe.</small>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <label for="interes" class="form-label">Interes:</label>
+            <div class="input-group">
+                <span class="input-group-text" id="inputGroupinteres">$</span>
+                <input type="text" class="form-control" id="interes" name="interes" value="0" inputmode="numeric">
+            </div>
+            <small id="emptyErrorinteres" class="text-danger" style="display: none;">Por favor, ingresa Interés.</small>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <label for="comision" class="form-label">Comisión:</label>
+             <div class="input-group">
+                <span class="input-group-text" id="inputGroupcomision">$</span>
+                <input type="text" class="form-control" id="comision" name="comision" value="0" inputmode="numeric">
+             </div>
+            <small id="emptyErrorcomision" class="text-danger" style="display: none;">Por favor, ingresa Comisión.</small>
+        </div>
+
+         <div class="col-md-3 mb-3">
+            <label for="total" class="form-label">Total:</label>
+             <div class="input-group">
+                <span class="input-group-text" id="inputGrouptotal">$</span>
+                <input type="text" class="form-control" id="total" name="total">
+             </div>
+        </div>
+
+      {{ macros.form_controls('text','nota','Notas:' ,'form-control')  }}
+
+    </div>
+    </div>
  {%  endblock %}
