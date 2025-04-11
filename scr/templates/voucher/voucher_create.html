@@ -74,5 +74,24 @@
       {{ macros.form_controls('text','nota','Notas:' ,'form-control')  }}
 
     </div>
+        <button id="guardar" class ="btn btn-primary mr-2" >Guardar Voucher</button>
     </div>
+
+   <script>
+       document.addEventListener('DOMContentLoaded',function(){
+
+        $.getScript("{{ url_for('static',filename='js/vouchercreate.js')}}",function(){
+
+            $.getScript("{{ url_for('static',filename='js/closeforms.js')}}",function(){
+
+                vo_closeForms();
+                vo_methodCreate();
+
+            });
+        });
+
+       });
+   </script>
+
+
  {%  endblock %}
